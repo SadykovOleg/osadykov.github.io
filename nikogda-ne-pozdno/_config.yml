@@ -25,6 +25,6 @@ offer:
 
 # Технические поля для GitHub Pages — заполните после создания репозитория
 url: "https://osadykov.github.io"            # например https://username.github.io
-baseurl: ""        # например /nikogda-ne-pozdno (пусто, если репозиторий называется username.github.io)
+baseurl:         # например /nikogda-ne-pozdno (пусто, если репозиторий называется username.github.io)
 
 markdown: kramdown
