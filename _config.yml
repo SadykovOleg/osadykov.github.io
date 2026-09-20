@@ -18,13 +18,13 @@ offer:
   consultation_value: "25 000 ₽"
   bonuses_value: "21 800 ₽"
   total_value: "46 800 ₽"
-  deadline_date: "[впишите актуальную дату]"   # ⚠️ обязательно замените перед публикацией — см. README
+  deadline_date: "30.09.2026г"   # ⚠️ обязательно замените перед публикацией — см. README
   price_after_deadline: "12 900 ₽"
   weekly_slots: "5"
   guarantee_days: "7"
 
 # Технические поля для GitHub Pages — заполните после создания репозитория
-url: ""            # например https://username.github.io
+url: "https://osadykov.github.io"            # например https://username.github.io
 baseurl: ""        # например /nikogda-ne-pozdno (пусто, если репозиторий называется username.github.io)
 
 markdown: kramdown
