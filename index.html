@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Никогда не поздно — Метод «Точка А»: маршрут к 100 000 ₽/мес</title>
-  <meta name="description" content="Как посчитать точный маршрут к пассивному доходу 100 000 ₽/мес. Личная встреча с независимым fee-only консультантом.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="data:,">
-</head>
-<body>
+---
+layout: default
+title: "{{ site.title }} — {{ site.description }}"
+---
 
 <header class="site-header">
   <div class="wrap">
@@ -26,17 +16,17 @@
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow">Метод «Точка А»</span>
-      <h1 id="hero-headline">Как посчитать точный маршрут к пассивному доходу 100 000 ₽/мес</h1>
+      <h1>Как посчитать точный маршрут к пассивному доходу {{ site.offer.goal_income }}/мес</h1>
       <p class="lede">Меня зовут Олег Садыков, я независимый финансовый консультант. Это не рекламный ролик — на реальной логике я покажу, как устроен расчёт маршрута к пассивному доходу. Вы уйдёте с пониманием, даже если решите ничего не покупать — и заберёте три бесплатных материала в любом случае.</p>
 
       <div class="route">
         <span class="pt">Точка А — сегодня</span>
         <span class="line"></span>
-        <span class="pt">Точка Б — 100 000 ₽/мес</span>
+        <span class="pt">Точка Б — {{ site.offer.goal_income }}/мес</span>
       </div>
 
       <div class="author">
-        <span class="name">Олег Садыков</span> — независимый финансовый консультант, fee-only
+        <span class="name">Олег Садыков</span> — {{ site.author.role }}
       </div>
 
       <div class="cta-row">
@@ -71,7 +61,7 @@
             <li>Есть дата, когда сможете жить на пассивный доход — не «когда-нибудь»</li>
             <li>Понимаете логику выбора инструментов, а не действуете наугад</li>
             <li>Расчёт строится от сегодняшней точки, какой бы она ни была</li>
-            <li>Видите весь путь целиком: от текущей суммы до 100 000 ₽/мес</li>
+            <li>Видите весь путь целиком: от текущей суммы до {{ site.offer.goal_income }}/мес</li>
           </ul>
         </div>
       </div>
@@ -86,14 +76,12 @@
       <p class="measure">Мне всё равно, какой конкретно инструмент вы в итоге выберете — я не зарабатываю на разнице и не получаю процент от суммы вложений. Если кто-то обещает «40% в месяц» или «удвоение капитала за год» — это почти всегда признак пирамиды. Реалистичный рост капитала при дисциплинированной стратегии — 30–40% <em>в год</em>, и достигается он точным расчётом и временем, а не спекуляциями.</p>
 
       <div class="cases">
+        {% for c in site.data.case_studies %}
         <div class="case">
-          <div class="move">110 000 ₽ <span class="arrow">→</span> 223 668 ₽</div>
-          <p>Портфель клиентки вырос за счёт пересборки распределения вложений — без рискованных ставок. Увидев первый результат, она сама решила довнести ещё 100 000 ₽.</p>
+          <div class="move">{{ c.from }} <span class="arrow">→</span> {{ c.to }}</div>
+          <p>{{ c.text }}</p>
         </div>
-        <div class="case">
-          <div class="move">−738 231 ₽ <span class="arrow">→</span> +590 000 ₽</div>
-          <p>Клиент пришёл с долгами, превышающими накопления. Через 11 месяцев по плану: закрыты два кредита и создана подушка безопасности 340 000 ₽.</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -105,7 +93,7 @@
       <h2 class="measure">Что вы узнаете за следующие несколько минут</h2>
       <ol>
         <li>Какая логика стоит за расчётом «сколько откладывать» — и почему общий совет «10% дохода» не работает лично для вас</li>
-        <li>Почему одна и та же цель 100 000 ₽/мес может требовать разной суммы капитала — в зависимости от одного выбора, о котором почти никто не задумывается</li>
+        <li>Почему одна и та же цель {{ site.offer.goal_income }}/мес может требовать разной суммы капитала — в зависимости от одного выбора, о котором почти никто не задумывается</li>
         <li>Что означают слова «диверсификация» и «риск-профиль» — простыми словами</li>
         <li>Почему промедление с расчётом обходится дороже, чем ошибка в выборе инструмента — и насколько именно дороже</li>
         <li>Что из этого расчёта можно сделать самому прямо сейчас, а что зависит от ваших личных цифр</li>
@@ -134,7 +122,7 @@
     <div class="wrap">
       <span class="tag">Как устроен расчёт</span>
       <h2 class="measure">Первый вопрос — не «куда вложить», а «сколько именно капитала нужно». Инструменты — второй шаг</h2>
-      <p class="measure">Есть два принципиально разных пути к 100 000 ₽/мес, и большинство людей их даже не различают — хотя разница в нужной сумме огромная.</p>
+      <p class="measure">Есть два принципиально разных пути к {{ site.offer.goal_income }}/мес, и большинство людей их даже не различают — хотя разница в нужной сумме огромная.</p>
 
       <div class="paths">
         <div class="path-card">
@@ -150,7 +138,7 @@
           <div class="mult">×25–30 <small>от годового дохода</small></div>
         </div>
       </div>
-      <p class="measure" style="margin-top:24px;"><strong>Один и тот же результат — 100 000 ₽/мес — может требовать в полтора-два раза разной суммы</strong>, в зависимости только от выбранного пути. Поэтому совет «откладывайте 10% дохода» ничего не говорит о вашей реальной цели.</p>
+      <p class="measure" style="margin-top:24px;"><strong>Один и тот же результат — {{ site.offer.goal_income }}/мес — может требовать в полтора-два раза разной суммы</strong>, в зависимости только от выбранного пути. Поэтому совет «откладывайте 10% дохода» ничего не говорит о вашей реальной цели.</p>
 
       <div class="compound">
         <h3 style="margin-bottom:.2em;">Промедление стоит дороже, чем ошибка в выборе инструмента</h3>
@@ -203,34 +191,12 @@
       <span class="tag">Честные ответы</span>
       <h2 class="measure">То, что обычно крутится в голове на этом моменте</h2>
       <div class="faq-list">
+        {% for o in site.data.objections %}
         <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>Дорого, а гарантий нет</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Гарантий на доходность рынка не даст никто честный — если вам их дают, это повод насторожиться. Но я гарантирую результат самой встречи: если вы не получите письменный расчёт с конкретными цифрами — верну деньги полностью в течение 7 дней. Материалы остаются у вас в любом случае.</p></div>
+          <button class="faq-q"><span>{{ o.q }}</span><span class="icon">+</span></button>
+          <div class="faq-a"><p>{{ o.a }}</p></div>
         </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>У меня уже есть банк или консультант</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Возможно, текущий консультант получает комиссию от банка или брокера за рекомендованный продукт. Я работаю иначе: оплата фиксированная и не зависит от того, что вы выберете. Расчёт можно использовать и как независимую проверку того, что вам уже посоветовали.</p></div>
-        </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>У меня уже есть портфель, я не начинаю с нуля</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Расчёт учитывает и это — существующие вложения встраиваются в общую картину как часть текущего капитала. Разбираем не только новые взносы, но и то, работает ли на вашу цель то, что уже вложено.</p></div>
-        </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>Нет свободных денег на старт</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Расчёт строится от вашей реальной стартовой суммы, даже минимальной или нулевой. Один из бесплатных материалов — чек-лист с вашей точкой старта — работает независимо от суммы.</p></div>
-        </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>Боюсь, что не хватит дисциплины</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Большинство планов проваливаются не из-за ошибки в расчёте, а потому что план забрасывается через несколько месяцев. Поэтому в структуре встречи есть контроль на 3, 6 и 12 месяцев — дисциплина держится на регулярной внешней сверке, а не на силе воли.</p></div>
-        </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>Мне уже поздно начинать</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Расчёт всегда строится от вашей сегодняшней точки. Даже при старте в 45–50 лет есть реалистичный маршрут — он будет выглядеть иначе, с другим соотношением пути «тратить капитал» и пути «жить с процентов».</p></div>
-        </div>
-        <div class="faq-item" data-open="false">
-          <button class="faq-q"><span>А если окажется, что цель нереалистична</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Такое бывает, и я скажу это прямо. Если 100 000 ₽/мес недостижимы к желаемому сроку — вы услышите реалистичную альтернативу: другую сумму, другой срок или другое сочетание путей. Расчёт существует, чтобы вы приняли решение на основе фактов.</p></div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -241,21 +207,13 @@
       <span class="tag">Вне зависимости от решения</span>
       <h2 class="measure">Три материала — бесплатно, в любом случае</h2>
       <div class="gifts">
+        {% for g in site.data.free_gifts %}
         <div class="gift">
-          <span class="num">Материал 1</span>
-          <h4>Чек-лист «6 цифр вашей финансовой точки старта»</h4>
-          <p>Заполняется за 5 минут: возраст, срок до цели, желаемая сумма, текущие накопления, обязательные расходы, сумма, которую реально можно откладывать.</p>
+          <span class="num">Материал {{ forloop.index }}</span>
+          <h4>{{ g.title }}</h4>
+          <p>{{ g.text }}</p>
         </div>
-        <div class="gift">
-          <span class="num">Материал 2</span>
-          <h4>План на 7 дней «От тревоги к ясности»</h4>
-          <p>Одна небольшая задача в день — от «я не знаю, с чего начать» до полной картины своей ситуации: расходы, подушка, кредиты, срок до цели.</p>
-        </div>
-        <div class="gift">
-          <span class="num">Материал 3</span>
-          <h4>Гайд «10 вопросов перед любым финансовым решением»</h4>
-          <p>Что спросить у любого консультанта или банка, прежде чем довериться, и какие ответы должны насторожить.</p>
-        </div>
+        {% endfor %}
       </div>
       <p style="margin-top:28px;">Отправлю на почту или в сообщении сразу после урока — независимо от того, что вы решите дальше.</p>
     </div>
@@ -265,36 +223,35 @@
   <section class="offer" id="offer">
     <div class="wrap">
       <span class="tag" style="color:var(--gold-soft)">Если хотите применить это к своим цифрам</span>
-      <h2 class="measure" style="color:var(--white)">Личная встреча, 60 минут — Zoom или очно</h2>
-      <p class="measure" style="color:rgba(252,251,247,.8)">Результат — письменный документ: какой путь вам подходит, точная сумма ежемесячного взноса, ориентировочная дата выхода на 100 000 ₽/мес, конкретный список доступных инструментов.</p>
+      <h2 class="measure" style="color:var(--white)">Личная встреча, {{ site.offer.meeting_length }} — Zoom или очно</h2>
+      <p class="measure" style="color:rgba(252,251,247,.8)">Результат — письменный документ: какой путь вам подходит, точная сумма ежемесячного взноса, ориентировочная дата выхода на {{ site.offer.goal_income }}/мес, конкретный список доступных инструментов.</p>
 
       <div class="route">
-        <span class="pt">Точка А</span><span class="line"></span><span class="pt">Точка Б — 100 000 ₽/мес</span>
+        <span class="pt">Точка А</span><span class="line"></span><span class="pt">Точка Б — {{ site.offer.goal_income }}/мес</span>
       </div>
 
       <div class="offer-card">
-        <div class="value-line"><span>Консультация 60 минут у независимого fee-only консультанта</span><b>25 000 ₽</b></div>
-        <div class="value-line"><span>Трекер капитала — шаблон для отслеживания прогресса после встречи</span><b>2 900 ₽</b></div>
-        <div class="value-line"><span>Гид «Первые 5 000 ₽» — маршрут для старта с минимальной суммы</span><b>3 900 ₽</b></div>
-        <div class="value-line"><span>Инструкция по налоговому вычету под ваш тип счёта</span><b>5 000 ₽</b></div>
-        <div class="value-line"><span>7 дней текстовой поддержки после встречи</span><b>10 000 ₽</b></div>
-        <div class="total"><span>Суммарная ценность</span><span>46 800 ₽</span></div>
+        <div class="value-line"><span>Консультация {{ site.offer.meeting_length }} у независимого fee-only консультанта</span><b>{{ site.offer.consultation_value }}</b></div>
+        {% for b in site.data.bonuses %}
+        <div class="value-line"><span>{{ b.title }} — {{ b.text }}</span><b>{{ b.value }}</b></div>
+        {% endfor %}
+        <div class="total"><span>Суммарная ценность</span><span>{{ site.offer.total_value }}</span></div>
 
         <div class="price-row">
-          <span class="now">9 900 ₽</span>
-          <span class="old">12 900 ₽</span>
+          <span class="now">{{ site.offer.price_full }}</span>
+          <span class="old">{{ site.offer.price_old }}</span>
         </div>
-        <div class="installment">или 3 платежа по 3 300 ₽</div>
+        <div class="installment">или {{ site.offer.price_installment }}</div>
 
         <div class="deadline-box">
-          Цена действует до <strong>[впишите актуальную дату]</strong>, далее — 12 900 ₽.
+          Цена действует до {{ site.offer.deadline_date }}, далее — {{ site.offer.price_after_deadline }}.
         </div>
-        <div class="limits">Веду консультации лично, без ассистентов — не больше 5 встреч в неделю.</div>
+        <div class="limits">Веду консультации лично, без ассистентов — не больше {{ site.offer.weekly_slots }} встреч в неделю.</div>
 
-        <div class="guarantee">Гарантия: если после встречи вы не получите письменный расчёт с конкретными цифрами — верну деньги полностью в течение 7 дней. Все материалы остаются у вас в любом случае.</div>
+        <div class="guarantee">Гарантия: если после встречи вы не получите письменный расчёт с конкретными цифрами — верну деньги полностью в течение {{ site.offer.guarantee_days }} дней. Все материалы остаются у вас в любом случае.</div>
 
         <div style="margin-top:28px;">
-          <a id="offer-cta" href="mailto:osadykov@yandex.ru?subject=Записаться на встречу «Точка А»" class="btn">Записаться на встречу</a>
+          <a href="mailto:{{ site.author.email }}?subject=Записаться на встречу «Точка А»" class="btn">Записаться на встречу</a>
         </div>
       </div>
     </div>
@@ -304,11 +261,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Олег Садыков — независимый финансовый консультант, fee-only</span>
-    <span>osadykov@yandex.ru · +7 922 300-10-99</span>
+    <span>© {{ 'now' | date: '%Y' }} {{ site.author.name }} — {{ site.author.role }}</span>
+    <span>{{ site.author.email }} · {{ site.author.phone }}</span>
   </div>
 </footer>
-
-<script src="assets/js/main.js"></script>
-</body>
-</html>
