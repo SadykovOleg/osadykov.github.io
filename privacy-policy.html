@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика обработки персональных данных</title><style>
+    :root {
+      --green: #073f38;
+      --green2: #0c5147;
+      --cream: #f7f4ec;
+      --paper: #fffdf8;
+      --gold: #c8a75b;
+      --ink: #153b37;
+      --muted: #5c716c;
+      --line: #e5e0d4;
+      --radius: 22px;
+      --shadow: 0 16px 40px rgba(20, 48, 42, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 23px; color: var(--green); }
+    .brand small { display: block; font-weight: 500; font-size: 12px; letter-spacing: .02em; color: var(--muted); }
+    .topnote { font-size: 13px; color: var(--muted); text-align: right; }
+    .hero {
+      position: relative; overflow: hidden; background: linear-gradient(110deg, #fffdf8 0%, #f7f4ec 48%, #e9e6db 100%);
+      border-radius: 28px; min-height: 480px; display: grid; grid-template-columns: 1.08fr .92fr;
+      box-shadow: var(--shadow); isolation: isolate;
+    }
+    .hero-copy { padding: clamp(32px, 5vw, 64px); align-self: center; z-index: 2; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; color: var(--green2); font-size: 11px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .eyebrow:before { content: ""; width: 30px; height: 2px; background: var(--gold); display: inline-block; }
+    h1 { margin: 18px 0 18px; color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 4.4vw, 57px); line-height: 1.05; letter-spacing: -.035em; }
+    .hero-sub { font-size: clamp(16px, 1.7vw, 20px); max-width: 510px; margin: 0 0 26px; }
+    .hero-photo { min-height: 480px; position: relative; }
+    .hero-photo:before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f7f4ec 0%, rgba(247, 244, 236, .15) 32%, rgba(7, 63, 56, .03) 100%); z-index: 1; }
+    .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
+    .signature { position: absolute; right: 24px; bottom: 24px; z-index: 2; color: #fff; background: rgba(7, 63, 56, .88); padding: 10px 16px; border-radius: 10px; font-family: Georgia, serif; font-style: italic; font-size: 20px; letter-spacing: .01em; }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 30px; }
+    .pill { border: 1px solid #d9d5c9; border-radius: 99px; padding: 8px 12px; font-size: 12px; background: #ffffffa6; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px; border: 0; cursor: pointer;
+      background: var(--green); color: white; text-decoration: none; border-radius: 999px; padding: 16px 25px;
+      font-weight: 750; box-shadow: 0 8px 20px #073f3826; transition: transform .2s, background .2s;
+    }
+    .cta:hover { transform: translateY(-2px); background: var(--green2); }
+    .price-note { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    section { padding: 66px 0; }
+    .section-head { max-width: 700px; margin-bottom: 28px; }
+    h2 { font-family: Georgia, "Times New Roman", serif; color: var(--green); font-size: clamp(27px, 3.2vw, 40px); line-height: 1.12; margin: 10px 0 12px; letter-spacing: -.025em; }
+    .lead { color: var(--muted); margin: 0; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; min-height: 205px; }
+    .num { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: white; font-weight: 800; margin-bottom: 18px; }
+    .step h3 { color: var(--green); margin: 0 0 8px; font-size: 18px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .profile { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 70px); align-items: center; }
+    .profile-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #e6e2d9; }
+    .profile-photo img { width: 100%; height: 430px; object-fit: cover; object-position: 50% 20%; display: block; }
+    .profile-copy p { color: var(--muted); }
+    .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .credential { border: 1px solid var(--line); border-radius: 12px; background: #fffdf8; padding: 12px 14px; font-size: 12px; }
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .review { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; }
+    .quote { font-family: Georgia, serif; color: var(--gold); font-size: 38px; line-height: .8; }
+    .review p { color: var(--muted); font-size: 14px; }
+    .review strong { color: var(--green); font-size: 13px; margin-top: auto; }
+    .case-num { font-family: Georgia, serif; color: var(--green); font-size: 30px; line-height: 1.1; margin: 8px 0 6px; }
+    .case-num small { display: block; font-family: Inter, sans-serif; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+    .value-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 14px; align-items: stretch; }
+    .value-table { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 8px 22px; }
+    .value-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .value-row:last-child { border-bottom: 0; }
+    .value-row span:last-child { color: var(--green); font-weight: 700; white-space: nowrap; }
+    .value-total { display: flex; justify-content: space-between; padding: 16px 0 14px; font-weight: 800; color: var(--green); font-size: 16px; border-top: 2px solid var(--green); margin-top: 6px; }
+    .guarantee-card { background: var(--green); color: #fff; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; justify-content: center; }
+    .guarantee-card h3 { font-family: Georgia, serif; font-size: 24px; margin: 8px 0 12px; color: #fff; }
+    .guarantee-card p { margin: 0; color: #d8e3dd; font-size: 14px; }
+    .offer { background: var(--green); color: #fff; border-radius: 28px; padding: clamp(28px, 5vw, 58px); display: grid; grid-template-columns: 1fr .8fr; gap: 36px; align-items: center; }
+    .offer .eyebrow { color: #e6d8b4; }
+    .offer h2 { color: white; }
+    .offer .lead { color: #d8e3dd; }
+    .included { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+    .included li:before { content: "✓"; color: #e4c778; font-weight: 900; margin-right: 10px; }
+    .price-card { background: var(--paper); color: var(--ink); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px #0002; }
+    .price-card .label { text-transform: uppercase; letter-spacing: .13em; font-size: 11px; color: var(--muted); font-weight: 800; }
+    .price { font-size: clamp(42px, 5vw, 60px); line-height: 1.1; font-weight: 850; color: var(--green); margin: 7px 0; }
+    .price-card p { color: var(--muted); font-size: 14px; }
+    .price-card .cta { width: 100%; margin-top: 12px; }
+    .consent-note { font-size: 12px !important; text-align: center; margin: 12px 0 0; }
+    .consent-note a { color: var(--green2); }
+    .scarcity { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--green2); font-weight: 700; }
+    .closing { text-align: center; padding: 56px 20px; }
+    .closing h2 { max-width: 760px; margin: 0 auto 20px; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 36px; color: var(--muted); font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-row a { color: var(--green2); }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 32px 28px 26px; }
+      .hero-photo { min-height: 360px; order: -1; }
+      .hero-photo:before { background: linear-gradient(0deg, rgba(7, 63, 56, .12), transparent 40%); }
+      .hero-photo img { object-position: 50% 25%; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .profile { grid-template-columns: 1fr; }
+      .profile-photo img { height: 360px; }
+      .reviews { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .offer { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 24px, 1160px); }
+      .topbar { padding: 16px 0; }
+      .brand { font-size: 20px; }
+      .topnote { max-width: 120px; font-size: 11px; }
+      .hero { border-radius: 18px; }
+      .hero-photo { min-height: 310px; }
+      .hero-copy { padding: 26px 20px 28px; }
+      h1 { font-size: 35px; }
+      .pills { gap: 7px; }
+      .pill { font-size: 11px; padding: 7px 9px; }
+      .cta { width: 100%; padding: 15px 18px; }
+      section { padding: 46px 0; }
+      .steps { grid-template-columns: 1fr; }
+      .step { min-height: unset; }
+      .profile-photo img { height: 320px; }
+      .offer { border-radius: 20px; padding: 24px 18px; }
+      .price-card { padding: 22px; }
+    }
+  
+    .body-copy { width: min(760px, 100%); margin: 0 auto; }
+    .body-copy h2 { margin-top: 2.2em; }
+    .body-copy p { color: var(--ink); margin: 0 0 1em; font-size: 17px; }
+    .body-copy ul { padding-left: 1.2em; color: var(--ink); }
+    .body-copy li { margin-bottom: .45em; }
+    .body-copy blockquote { margin: 1.3em 0; padding: 16px 20px; background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; }
+    .body-copy blockquote p { margin: 0 0 .6em; }
+    .body-copy blockquote p:last-child { font-style: normal; color: var(--muted); font-size: 13px; }
+    .body-copy hr { border: 0; border-top: 1px solid var(--line); margin: 2.2em 0; }
+    .body-copy strong { color: var(--green); }
+    .cta-wrap { margin: 1.6em 0; text-align: center; }
+    .body-copy .profile-photo { margin: 1.4em 0 1.8em; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .body-copy .profile-photo img { width: 100%; height: 420px; object-fit: cover; object-position: 50% 20%; display: block; }
+
+    .short { width: min(760px, 100%); margin: 0 auto; }
+    .short h2 { margin: 0 0 14px; }
+    .short p { color: var(--ink); margin: 0 0 14px; font-size: 17px; }
+    .short ul { padding-left: 1.2em; margin: 0 0 14px; }
+    .short li { margin-bottom: .4em; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .bonus { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .bonus b { color: var(--green); display: block; margin-bottom: 4px; }
+    .bonus span { color: var(--muted); font-size: 14px; }
+    .quote-box { background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 14px 18px; margin: 0 0 12px; font-style: italic; }
+    .quote-box small { display: block; font-style: normal; color: var(--muted); margin-top: 6px; }
+    .price-line { font-size: 15px; color: var(--muted); }
+    .price-line b { color: var(--green); font-size: 22px; }
+    .cta-wrap { margin: 1.4em 0; text-align: center; }
+    @media (max-width: 520px) { .bonus-grid { grid-template-columns: 1fr; } }
+
+    .short { width: min(760px, 100%); margin: 0 auto; }
+    .short h2 { margin: 0 0 14px; }
+    .short p { color: var(--ink); margin: 0 0 14px; font-size: 17px; }
+    .short ul { padding-left: 1.2em; margin: 0 0 14px; }
+    .short li { margin-bottom: .4em; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .bonus { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .bonus b { color: var(--green); display: block; margin-bottom: 4px; }
+    .bonus span { color: var(--muted); font-size: 14px; }
+    .quote-box { background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 14px 18px; margin: 0 0 12px; font-style: italic; }
+    .quote-box small { display: block; font-style: normal; color: var(--muted); margin-top: 6px; }
+    .price-line { font-size: 15px; color: var(--muted); }
+    .price-line b { color: var(--green); font-size: 22px; }
+    .cta-wrap { margin: 1.4em 0; text-align: center; }
+    .disclaimer { font-size: 12px; color: var(--muted); text-align: center; }
+    @media (max-width: 520px) { .bonus-grid { grid-template-columns: 1fr; } }
+
+main.doc { width: min(760px, calc(100% - 40px)); margin: 40px auto; }
+main.doc h1 { font-family: Georgia, serif; color: var(--green); font-size: 30px; }
+main.doc h2 { font-family: Georgia, serif; color: var(--green); font-size: 22px; margin-top: 1.8em; }
+main.doc p, main.doc li { color: var(--ink); font-size: 16px; }
+</style></head><body>
+<header class="wrap topbar"><div class="brand"><a href="/" style="text-decoration:none">Sadykov_finance</a><small>Финансовый консультант</small></div></header>
+<main class="doc">
+<h1>Политика обработки персональных данных</h1>
+<p><strong>Дата последнего обновления:</strong> [указать дату]</p>
+<h2 id="общие-положения">1. Общие положения</h2>
+<p>Настоящая Политика обработки персональных данных определяет порядок
+обработки и защиты персональных данных пользователей сайта
+https://osadykov.ru, а также пользователей сервисов Sadykov_finance,
+включая Telegram-бота, предназначенного для сбора ответов на вопросы и
+подготовки личного финансового плана.</p>
+<p><strong>Оператор персональных данных:</strong></p>
+<ul>
+<li>ФИО: Садыков Олег Алекович</li>
+<li>Статус: плательщик налога на профессиональный доход
+(самозанятый)</li>
+<li>ИНН: 745303705910</li>
+<li>Адрес: г. Пермь, ул. Василия Татищева, д. 8</li>
+<li>Сайт: https://osadykov.ru</li>
+<li>Электронная почта: osadykov@yandex.ru</li>
+</ul>
+<p>Оператор соблюдает требования законодательства Российской Федерации о
+персональных данных, включая Федеральный закон № 152-ФЗ «О персональных
+данных».</p>
+<h2 id="какие-персональные-данные-могут-обрабатываться">2. Какие
+персональные данные могут обрабатываться</h2>
+<p>В зависимости от того, какими сервисами пользуется посетитель,
+Оператор может обрабатывать следующие данные:</p>
+<ul>
+<li>имя, фамилию и другие сведения, которые пользователь сообщает
+самостоятельно;</li>
+<li>номер телефона и адрес электронной почты;</li>
+<li>имя пользователя и идентификатор Telegram;</li>
+<li>ответы на вопросы анкеты, сообщения и обращения;</li>
+<li>финансовые сведения, предоставленные пользователем для подготовки
+личного финансового плана: доходы, расходы, накопления, активы,
+обязательства, кредиты и финансовые цели;</li>
+<li>технические сведения, которые автоматически передаются при
+использовании сайта, если их сбор предусмотрен настройками хостинга или
+используемых сервисов.</li>
+</ul>
+<p>Оператор не запрашивает пароли от банковских приложений, PIN-коды,
+CVV/CVC-коды банковских карт и коды подтверждения операций.</p>
+<p>Пользователь самостоятельно определяет, какие сведения сообщать
+Оператору. Не следует указывать данные, не относящиеся к цели
+обращения.</p>
+<h2 id="цели-обработки-персональных-данных">3. Цели обработки
+персональных данных</h2>
+<p>Персональные данные обрабатываются для следующих целей:</p>
+<ol type="1">
+<li>Приём и обработка обращений и заявок.</li>
+<li>Связь с пользователем по вопросам финансового консультирования.</li>
+<li>Подготовка расчётов, рекомендаций и личного финансового плана на
+основе предоставленной пользователем информации.</li>
+<li>Организация работы Telegram-бота, включая сбор ответов анкеты и
+передачу результатов пользователю.</li>
+<li>Заключение и исполнение договоров на оказание услуг.</li>
+<li>Ответы на запросы пользователей, связанные с обработкой их
+персональных данных.</li>
+<li>Обеспечение безопасности сайта и используемых сервисов.</li>
+<li>Выполнение обязанностей, установленных законодательством Российской
+Федерации.</li>
+</ol>
+<p>Персональные данные не должны использоваться для целей, несовместимых
+с целями их сбора.</p>
+<h2 id="правовые-основания-обработки">4. Правовые основания
+обработки</h2>
+<p>Оператор обрабатывает персональные данные при наличии
+соответствующего правового основания, предусмотренного законодательством
+Российской Федерации, в том числе:</p>
+<ul>
+<li>согласия субъекта персональных данных;</li>
+<li>необходимости обработки для заключения или исполнения договора,
+стороной которого является пользователь;</li>
+<li>необходимости исполнения обязанностей, возложенных на Оператора
+законодательством.</li>
+</ul>
+<p>Настоящая Политика описывает порядок обработки персональных данных,
+но сама по себе не заменяет согласие пользователя в случаях, когда такое
+согласие требуется законом. Текст согласия размещён на странице <a
+href="/soglasie/">Согласие на обработку персональных данных</a>.</p>
+<h2 id="порядок-и-способы-обработки">5. Порядок и способы обработки</h2>
+<p>Обработка персональных данных может осуществляться с использованием
+средств автоматизации и без их использования.</p>
+<p>Оператор может совершать с персональными данными действия,
+необходимые для заявленных целей обработки, включая сбор, запись,
+систематизацию, накопление, хранение, уточнение, использование, передачу
+в предусмотренных законом случаях, обезличивание, блокирование и
+удаление.</p>
+<p>Запись, систематизация, накопление и хранение персональных данных
+граждан Российской Федерации осуществляются с использованием баз данных,
+находящихся на территории Российской Федерации, в соответствии с
+требованиями ч. 5 ст. 18 152-ФЗ.</p>
+<p>Оператор принимает меры, направленные на обеспечение
+конфиденциальности персональных данных и предотвращение неправомерного
+доступа к ним.</p>
+<h2 id="обработка-данных-при-использовании-сайта">6. Обработка данных
+при использовании сайта</h2>
+<p>Сайт Оператора размещён по адресу https://osadykov.ru.</p>
+<p>При посещении сайта технические сведения могут обрабатываться
+хостинг-провайдером и иными сервисами, задействованными в работе сайта,
+в соответствии с их условиями и настройками.</p>
+<p>Само размещение сайта на платформе хостинга не означает, что все
+данные, сообщённые пользователем через другие сервисы, хранятся на этой
+платформе.</p>
+<p>Если на сайте используются формы, через которые пользователь
+отправляет персональные данные, такие данные обрабатываются для связи с
+пользователем и достижения целей, указанных в настоящей Политике.</p>
+<h2 id="обработка-данных-через-telegram-бота">7. Обработка данных через
+Telegram-бота</h2>
+<p>Telegram-бот Sadykov_finance предназначен для сбора ответов
+пользователя на вопросы анкеты и подготовки личного финансового
+плана.</p>
+<p>В рамках работы бота могут обрабатываться идентификатор Telegram, имя
+пользователя, сообщения, ответы анкеты и финансовые сведения, которые
+пользователь добровольно предоставляет.</p>
+<p>Сервер бота расположен на территории Российской Федерации, базы
+данных с персональными данными граждан РФ хранятся на территории
+Российской Федерации. Инфраструктура Telegram и иные сторонние сервисы,
+которые пользователь использует для связи с Оператором, работают по
+своим правилам и условиям, и пользователю следует ознакомиться с
+ними.</p>
+<p>Согласие на обработку в боте даётся нажатием кнопки «Согласен» перед
+началом анкеты. Отозвать согласие можно командой <code>/revoke</code> в
+боте или письмом на osadykov@yandex.ru.</p>
+<p>Не следует отправлять через бота пароли, коды подтверждения, полные
+реквизиты банковских карт и иные избыточные сведения.</p>
+<h2 id="передача-персональных-данных-третьим-лицам">8. Передача
+персональных данных третьим лицам</h2>
+<p>Оператор может привлекать поставщиков технических услуг, необходимых
+для работы сайта, сервера, Telegram-бота, электронной почты и иных
+используемых сервисов.</p>
+<p>Передача персональных данных таким лицам допускается только при
+наличии законного основания и в объёме, необходимом для соответствующей
+цели.</p>
+<p>Передача персональных данных иным третьим лицам, включая страховые
+компании, брокеров и управляющие компании, возможна только по отдельному
+согласию пользователя.</p>
+<p>Персональные данные не продаются третьим лицам. Передача
+государственным органам осуществляется в случаях и порядке,
+предусмотренных законодательством Российской Федерации.</p>
+<h2 id="сроки-хранения-персональных-данных">9. Сроки хранения
+персональных данных</h2>
+<p>Персональные данные хранятся не дольше, чем этого требуют цели
+обработки, если иной срок не установлен законодательством или
+договором.</p>
+<p>По достижении целей обработки либо при наступлении иных
+предусмотренных законом оснований персональные данные подлежат удалению
+или уничтожению, если отсутствуют законные основания для дальнейшего
+хранения.</p>
+<p>Конкретные сроки хранения могут зависеть от вида данных, характера
+обращения, наличия договорных отношений и требований
+законодательства.</p>
+<h2 id="меры-защиты-персональных-данных">10. Меры защиты персональных
+данных</h2>
+<p>Оператор принимает необходимые организационные и технические меры для
+защиты персональных данных от неправомерного или случайного доступа,
+изменения, раскрытия, блокирования, уничтожения и иных неправомерных
+действий.</p>
+<p>Доступ к персональным данным ограничивается лицами и сервисами,
+которым он необходим для достижения заявленных целей обработки.</p>
+<h2 id="права-пользователя">11. Права пользователя</h2>
+<p>Пользователь вправе в пределах, предусмотренных законодательством
+Российской Федерации:</p>
+<ul>
+<li>получать сведения об обработке своих персональных данных;</li>
+<li>требовать уточнения, блокирования или уничтожения данных, если они
+являются неполными, устаревшими, неточными, незаконно полученными или не
+нужны для заявленной цели;</li>
+<li>отозвать согласие на обработку персональных данных, если обработка
+основана на согласии;</li>
+<li>обратиться к Оператору с вопросом или требованием, касающимся
+обработки персональных данных;</li>
+<li>обжаловать действия или бездействие Оператора в уполномоченный орган
+или суд.</li>
+</ul>
+<p>Для реализации своих прав пользователь может направить обращение на
+электронную почту Оператора: osadykov@yandex.ru.</p>
+<p>В обращении рекомендуется указать сведения, позволяющие определить,
+какие данные и какой запрос относятся к пользователю. Оператор может
+запросить информацию, необходимую для подтверждения личности заявителя,
+в пределах, допускаемых законом.</p>
+<h2 id="cookies-и-технические-данные">12. Cookies и технические
+данные</h2>
+<p>Сайт может обрабатывать технические данные, необходимые для его
+функционирования и обеспечения безопасности, в зависимости от настроек
+хостинга и используемых технологий.</p>
+<p>Если на сайте используются cookies, системы веб-аналитики, пиксели
+или иные средства отслеживания, их назначение и порядок обработки данных
+указываются в этом разделе. [Проверить и дополнить перед
+публикацией.]</p>
+<h2 id="изменение-политики">13. Изменение Политики</h2>
+<p>Оператор вправе вносить изменения в настоящую Политику при изменении
+законодательства, используемых технологий или порядка обработки
+персональных данных.</p>
+<p>Актуальная редакция Политики размещается на сайте по адресу
+https://osadykov.ru/privacy-policy.html.</p>
+<p>Дата последнего обновления указывается в начале документа.</p>
+<h2 id="контактная-информация">14. Контактная информация</h2>
+<p>По вопросам обработки персональных данных можно обратиться к
+Оператору:</p>
+<p><strong>Садыков Олег Алекович</strong> ИНН: 745303705910 Адрес: г.
+Пермь, ул. Василия Татищева, д. 8 Сайт: https://osadykov.ru Электронная
+почта: osadykov@yandex.ru</p>
+
+</main>
+<footer><div class="wrap footer-row"><div><a href="/">← На главную</a></div><div><a href="/oferta/">Публичная оферта</a></div><div>© <span>2026</span></div></div></footer>
+</body></html>
