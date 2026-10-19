@@ -1,1 +1,296 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Публичная оферта — Олег Садыков</title><style>
+    :root {
+      --green: #073f38;
+      --green2: #0c5147;
+      --cream: #f7f4ec;
+      --paper: #fffdf8;
+      --gold: #c8a75b;
+      --ink: #153b37;
+      --muted: #5c716c;
+      --line: #e5e0d4;
+      --radius: 22px;
+      --shadow: 0 16px 40px rgba(20, 48, 42, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 23px; color: var(--green); }
+    .brand small { display: block; font-weight: 500; font-size: 12px; letter-spacing: .02em; color: var(--muted); }
+    .topnote { font-size: 13px; color: var(--muted); text-align: right; }
+    .hero {
+      position: relative; overflow: hidden; background: linear-gradient(110deg, #fffdf8 0%, #f7f4ec 48%, #e9e6db 100%);
+      border-radius: 28px; min-height: 480px; display: grid; grid-template-columns: 1.08fr .92fr;
+      box-shadow: var(--shadow); isolation: isolate;
+    }
+    .hero-copy { padding: clamp(32px, 5vw, 64px); align-self: center; z-index: 2; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; color: var(--green2); font-size: 11px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .eyebrow:before { content: ""; width: 30px; height: 2px; background: var(--gold); display: inline-block; }
+    h1 { margin: 18px 0 18px; color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 4.4vw, 57px); line-height: 1.05; letter-spacing: -.035em; }
+    .hero-sub { font-size: clamp(16px, 1.7vw, 20px); max-width: 510px; margin: 0 0 26px; }
+    .hero-photo { min-height: 480px; position: relative; }
+    .hero-photo:before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f7f4ec 0%, rgba(247, 244, 236, .15) 32%, rgba(7, 63, 56, .03) 100%); z-index: 1; }
+    .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
+    .signature { position: absolute; right: 24px; bottom: 24px; z-index: 2; color: #fff; background: rgba(7, 63, 56, .88); padding: 10px 16px; border-radius: 10px; font-family: Georgia, serif; font-style: italic; font-size: 20px; letter-spacing: .01em; }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 30px; }
+    .pill { border: 1px solid #d9d5c9; border-radius: 99px; padding: 8px 12px; font-size: 12px; background: #ffffffa6; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px; border: 0; cursor: pointer;
+      background: var(--green); color: white; text-decoration: none; border-radius: 999px; padding: 16px 25px;
+      font-weight: 750; box-shadow: 0 8px 20px #073f3826; transition: transform .2s, background .2s;
+    }
+    .cta:hover { transform: translateY(-2px); background: var(--green2); }
+    .price-note { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    section { padding: 66px 0; }
+    .section-head { max-width: 700px; margin-bottom: 28px; }
+    h2 { font-family: Georgia, "Times New Roman", serif; color: var(--green); font-size: clamp(27px, 3.2vw, 40px); line-height: 1.12; margin: 10px 0 12px; letter-spacing: -.025em; }
+    .lead { color: var(--muted); margin: 0; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; min-height: 205px; }
+    .num { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: white; font-weight: 800; margin-bottom: 18px; }
+    .step h3 { color: var(--green); margin: 0 0 8px; font-size: 18px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .profile { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 70px); align-items: center; }
+    .profile-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #e6e2d9; }
+    .profile-photo img { width: 100%; height: 430px; object-fit: cover; object-position: 50% 20%; display: block; }
+    .profile-copy p { color: var(--muted); }
+    .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .credential { border: 1px solid var(--line); border-radius: 12px; background: #fffdf8; padding: 12px 14px; font-size: 12px; }
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .review { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; }
+    .quote { font-family: Georgia, serif; color: var(--gold); font-size: 38px; line-height: .8; }
+    .review p { color: var(--muted); font-size: 14px; }
+    .review strong { color: var(--green); font-size: 13px; margin-top: auto; }
+    .case-num { font-family: Georgia, serif; color: var(--green); font-size: 30px; line-height: 1.1; margin: 8px 0 6px; }
+    .case-num small { display: block; font-family: Inter, sans-serif; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+    .value-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 14px; align-items: stretch; }
+    .value-table { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 8px 22px; }
+    .value-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .value-row:last-child { border-bottom: 0; }
+    .value-row span:last-child { color: var(--green); font-weight: 700; white-space: nowrap; }
+    .value-total { display: flex; justify-content: space-between; padding: 16px 0 14px; font-weight: 800; color: var(--green); font-size: 16px; border-top: 2px solid var(--green); margin-top: 6px; }
+    .guarantee-card { background: var(--green); color: #fff; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; justify-content: center; }
+    .guarantee-card h3 { font-family: Georgia, serif; font-size: 24px; margin: 8px 0 12px; color: #fff; }
+    .guarantee-card p { margin: 0; color: #d8e3dd; font-size: 14px; }
+    .offer { background: var(--green); color: #fff; border-radius: 28px; padding: clamp(28px, 5vw, 58px); display: grid; grid-template-columns: 1fr .8fr; gap: 36px; align-items: center; }
+    .offer .eyebrow { color: #e6d8b4; }
+    .offer h2 { color: white; }
+    .offer .lead { color: #d8e3dd; }
+    .included { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+    .included li:before { content: "✓"; color: #e4c778; font-weight: 900; margin-right: 10px; }
+    .price-card { background: var(--paper); color: var(--ink); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px #0002; }
+    .price-card .label { text-transform: uppercase; letter-spacing: .13em; font-size: 11px; color: var(--muted); font-weight: 800; }
+    .price { font-size: clamp(42px, 5vw, 60px); line-height: 1.1; font-weight: 850; color: var(--green); margin: 7px 0; }
+    .price-card p { color: var(--muted); font-size: 14px; }
+    .price-card .cta { width: 100%; margin-top: 12px; }
+    .consent-note { font-size: 12px !important; text-align: center; margin: 12px 0 0; }
+    .consent-note a { color: var(--green2); }
+    .scarcity { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--green2); font-weight: 700; }
+    .closing { text-align: center; padding: 56px 20px; }
+    .closing h2 { max-width: 760px; margin: 0 auto 20px; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 36px; color: var(--muted); font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-row a { color: var(--green2); }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 32px 28px 26px; }
+      .hero-photo { min-height: 360px; order: -1; }
+      .hero-photo:before { background: linear-gradient(0deg, rgba(7, 63, 56, .12), transparent 40%); }
+      .hero-photo img { object-position: 50% 25%; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .profile { grid-template-columns: 1fr; }
+      .profile-photo img { height: 360px; }
+      .reviews { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .offer { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 24px, 1160px); }
+      .topbar { padding: 16px 0; }
+      .brand { font-size: 20px; }
+      .topnote { max-width: 120px; font-size: 11px; }
+      .hero { border-radius: 18px; }
+      .hero-photo { min-height: 310px; }
+      .hero-copy { padding: 26px 20px 28px; }
+      h1 { font-size: 35px; }
+      .pills { gap: 7px; }
+      .pill { font-size: 11px; padding: 7px 9px; }
+      .cta { width: 100%; padding: 15px 18px; }
+      section { padding: 46px 0; }
+      .steps { grid-template-columns: 1fr; }
+      .step { min-height: unset; }
+      .profile-photo img { height: 320px; }
+      .offer { border-radius: 20px; padding: 24px 18px; }
+      .price-card { padding: 22px; }
+    }
+  
+    .body-copy { width: min(760px, 100%); margin: 0 auto; }
+    .body-copy h2 { margin-top: 2.2em; }
+    .body-copy p { color: var(--ink); margin: 0 0 1em; font-size: 17px; }
+    .body-copy ul { padding-left: 1.2em; color: var(--ink); }
+    .body-copy li { margin-bottom: .45em; }
+    .body-copy blockquote { margin: 1.3em 0; padding: 16px 20px; background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; }
+    .body-copy blockquote p { margin: 0 0 .6em; }
+    .body-copy blockquote p:last-child { font-style: normal; color: var(--muted); font-size: 13px; }
+    .body-copy hr { border: 0; border-top: 1px solid var(--line); margin: 2.2em 0; }
+    .body-copy strong { color: var(--green); }
+    .cta-wrap { margin: 1.6em 0; text-align: center; }
+    .body-copy .profile-photo { margin: 1.4em 0 1.8em; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .body-copy .profile-photo img { width: 100%; height: 420px; object-fit: cover; object-position: 50% 20%; display: block; }
 
+    .short { width: min(760px, 100%); margin: 0 auto; }
+    .short h2 { margin: 0 0 14px; }
+    .short p { color: var(--ink); margin: 0 0 14px; font-size: 17px; }
+    .short ul { padding-left: 1.2em; margin: 0 0 14px; }
+    .short li { margin-bottom: .4em; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .bonus { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .bonus b { color: var(--green); display: block; margin-bottom: 4px; }
+    .bonus span { color: var(--muted); font-size: 14px; }
+    .quote-box { background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 14px 18px; margin: 0 0 12px; font-style: italic; }
+    .quote-box small { display: block; font-style: normal; color: var(--muted); margin-top: 6px; }
+    .price-line { font-size: 15px; color: var(--muted); }
+    .price-line b { color: var(--green); font-size: 22px; }
+    .cta-wrap { margin: 1.4em 0; text-align: center; }
+    @media (max-width: 520px) { .bonus-grid { grid-template-columns: 1fr; } }
+
+    .short { width: min(760px, 100%); margin: 0 auto; }
+    .short h2 { margin: 0 0 14px; }
+    .short p { color: var(--ink); margin: 0 0 14px; font-size: 17px; }
+    .short ul { padding-left: 1.2em; margin: 0 0 14px; }
+    .short li { margin-bottom: .4em; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .bonus { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .bonus b { color: var(--green); display: block; margin-bottom: 4px; }
+    .bonus span { color: var(--muted); font-size: 14px; }
+    .quote-box { background: var(--card, #f1ecdd); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 14px 18px; margin: 0 0 12px; font-style: italic; }
+    .quote-box small { display: block; font-style: normal; color: var(--muted); margin-top: 6px; }
+    .price-line { font-size: 15px; color: var(--muted); }
+    .price-line b { color: var(--green); font-size: 22px; }
+    .cta-wrap { margin: 1.4em 0; text-align: center; }
+    .disclaimer { font-size: 12px; color: var(--muted); text-align: center; }
+    @media (max-width: 520px) { .bonus-grid { grid-template-columns: 1fr; } }
+main.doc { width: min(760px, calc(100% - 40px)); margin: 40px auto; } main.doc h1 { font-family: Georgia, serif; color: var(--green); font-size: 30px; } main.doc h2 { font-family: Georgia, serif; color: var(--green); font-size: 22px; margin-top: 1.8em; } main.doc p, main.doc li { color: var(--ink); font-size: 16px; }</style></head><body>
+<header class="wrap topbar"><div class="brand"><a href="/" style="text-decoration:none">Sadykov_finance</a><small>Финансовый консультант</small></div></header>
+<main class="doc"><h1>Публичная оферта на оказание консультационных услуг</h1>
+<h1 id="публичная-оферта-на-оказание-консультационных-услуг">Публичная
+оферта на оказание консультационных услуг</h1>
+<p><strong>Редакция от:</strong> [дата]</p>
+<h2 id="общие-положения">1. Общие положения</h2>
+<p>1.1. Настоящая публичная оферта (далее — Оферта) адресована
+физическим лицам и содержит условия оказания консультационных услуг.</p>
+<p>1.2. Исполнитель: <strong>Садыков Олег Алекович</strong>, плательщик
+налога на профессиональный доход (самозанятый), ИНН 745303705910, адрес:
+г. Пермь, ул. Василия Татищева, д. 8, электронная почта:
+osadykov@yandex.ru (далее — Исполнитель).</p>
+<p>1.3. Акцептом Оферты считается оплата услуги, произведённая
+Заказчиком в порядке, предусмотренном разделом 4. С момента оплаты
+Оферта считается принятой, а договор — заключённым.</p>
+<p>1.4. Заказчиком является физическое лицо, оплачивающее услугу для
+себя.</p>
+<h2 id="предмет">2. Предмет</h2>
+<p>2.1. Исполнитель оказывает Заказчику консультационную услугу
+продолжительностью 60 минут (далее — Консультация) в формате онлайн
+(Zoom) или очно по согласованию с Заказчиком.</p>
+<p>2.2. В состав Консультации входят: - разбор финансовой ситуации
+Заказчика по данным, которые он сообщит; - письменная финансовая карта
+«Точка А → Точка Б» с расчётом ежемесячного взноса и ориентировочного
+срока; - ответы на вопросы по расчёту.</p>
+<p>2.3. Дополнительно Заказчику предоставляются материалы (далее —
+Бонусы), которые передаются в электронном виде после оплаты: - трекер
+капитала «Точка А»; - гид «Первые 5 000 ₽»; - инструкция по налоговому
+вычету; - 7 дней текстовой поддержки в переписке после Консультации.</p>
+<p>2.4. Бонусы не являются самостоятельной услугой и не подлежат
+отдельному возврату, кроме случаев, указанных в разделе 6.</p>
+<p>2.5. Консультация не является индивидуальной инвестиционной
+рекомендацией в смысле законодательства о рынке ценных бумаг, если
+Исполнитель прямо не указал иное. Исполнитель не оказывает услуг по
+доверительному управлению и не принимает инвестиционных решений за
+Заказчика.</p>
+<h2 id="порядок-оказания-услуги">3. Порядок оказания услуги</h2>
+<p>3.1. Заказчик записывается на Консультацию через сервис записи
+Calendly по ссылке на сайте.</p>
+<p>3.2. Письменная финансовая карта направляется Заказчику на
+электронную почту не позднее 7 дней после Консультации.</p>
+<p>3.3. Перенос Консультации возможен, если Заказчик предупредил
+Исполнителя не позднее 24 часов до начала. При неявке без предупреждения
+Заказчик вправе однократно перенести Консультацию на другой срок,
+согласованный с Исполнителем. Повторная неявка без предупреждения
+приводит к тому, что Консультация считается оказанной.</p>
+<p>3.4. Исполнитель не гарантирует конкретный результат инвестиций,
+доходность или сроки достижения целей. Финансовая карта содержит расчёты
+на основе данных Заказчика и сделанных допущений.</p>
+<h2 id="стоимость-и-порядок-оплаты">4. Стоимость и порядок оплаты</h2>
+<p>4.1. Стоимость Консультации с Бонусами составляет <strong>9 900
+₽</strong> (девять тысяч девятьсот рублей), в том числе НДС не
+облагается (самозанятый).</p>
+<p>4.2. Заказчик вправе оплатить услугу тремя платежами по <strong>3 300
+₽</strong>. Рассрочка доступна после её подключения в платёжном сервисе;
+до подключения оплата производится разово.</p>
+<p>4.3. Оплата производится через платёжный сервис Продамус на сайте
+Исполнителя.</p>
+<p>4.4. Стоимость действует до [25.10.2026]. После этой даты стоимость
+составляет [12 900 ₽] или иную цену, опубликованную на сайте.</p>
+<p>4.5. После оплаты Исполнитель формирует чек через приложение «Мой
+налог» и направляет его Заказчику на указанную электронную почту или
+телефон.</p>
+<h2 id="права-и-обязанности-сторон">5. Права и обязанности сторон</h2>
+<p>5.1. Заказчик обязуется сообщать достоверные данные, необходимые для
+расчёта, и оплачивать услугу в порядке раздела 4.</p>
+<p>5.2. Исполнитель обязуется оказать услугу качественно и в срок,
+передать финансовую карту и Бонусы.</p>
+<p>5.3. Заказчик вправе отказаться от Консультации до её начала. Оплата
+возвращается в порядке раздела 6.</p>
+<h2 id="возврат-денежных-средств">6. Возврат денежных средств</h2>
+<p>6.1. Исполнитель возвращает оплату в полном объёме, если Заказчик не
+получил письменную финансовую карту с расчётом в срок, указанный в п.
+3.2, при условии, что Заказчик обратился с запросом не позднее 7 дней с
+даты Консультации.</p>
+<p>6.2. Возврат производится в течение 10 рабочих дней на реквизиты, с
+которых была произведена оплата.</p>
+<p>6.3. Бонусы, переданные в электронном виде до обращения за возвратом,
+остаются у Заказчика.</p>
+<p>6.4. Возврат по иным основаниям, в том числе из-за несогласия
+Заказчика с результатом Консультации, осуществляется в порядке,
+установленном законодательством о защите прав потребителей.</p>
+<h2 id="персональные-данные">7. Персональные данные</h2>
+<p>7.1. Обработка персональных данных Заказчика осуществляется в
+соответствии с <a href="/privacy-policy.html">Политикой обработки
+персональных данных</a> и <a href="/soglasie/">Согласием на обработку
+персональных данных</a>.</p>
+<p>7.2. Акцептуя Оферту, Заказчик подтверждает, что ознакомился с
+указанными документами.</p>
+<h2 id="ответственность">8. Ответственность</h2>
+<p>8.1. Исполнитель не несёт ответственности за решения Заказчика,
+принятые на основе Консультации, а также за убытки, вызванные изменением
+рыночной ситуации.</p>
+<p>8.2. Ответственность Исполнителя ограничивается стоимостью услуги,
+оплаченной Заказчиком.</p>
+<p>8.3. Ничто в Оферте не исключает и не ограничивает права Заказчика,
+которые нельзя ограничить по закону о защите прав потребителей.</p>
+<h2 id="прочие-условия">9. Прочие условия</h2>
+<p>9.1. Оферта действует до её отзыва Исполнителем или замены новой
+редакцией, опубликованной на сайте.</p>
+<p>9.2. Споры решаются путём переговоров. При недостижении согласия — в
+порядке, установленном законодательством Российской Федерации.</p>
+<p>9.3. Во всём остальном, что не предусмотрено Офертой, стороны
+руководствуются законодательством Российской Федерации.</p>
+<h2 id="реквизиты-исполнителя">10. Реквизиты Исполнителя</h2>
+<p>Садыков Олег Алекович Статус: самозанятый (НПД) ИНН: 745303705910
+Адрес: г. Пермь, ул. Василия Татищева, д. 8 Электронная почта:
+osadykov@yandex.ru Сайт: https://osadykov.ru</p>
+
+</main>
+<footer><div class="wrap footer-row"><div><a href="/">← На главную</a></div><div><a href="/oferta/">Публичная оферта</a> · <a href="/privacy-policy.html">Политика</a> · <a href="/soglasie/">Согласие</a></div></div></footer>
+</body></html>
