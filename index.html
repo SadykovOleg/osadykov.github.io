@@ -185,6 +185,15 @@
     .cta-wrap { margin: 1.4em 0; text-align: center; }
     .disclaimer { font-size: 12px; color: var(--muted); text-align: center; }
     @media (max-width: 520px) { .bonus-grid { grid-template-columns: 1fr; } }
+
+    .pdn-consent{margin:18px 0 12px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fffdf8;font-size:13px;line-height:1.5;color:var(--muted)}
+    .pdn-consent__label{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+    .pdn-consent__label input{margin:3px 0 0;flex:0 0 17px;width:17px;height:17px;accent-color:var(--green)}
+    .pdn-consent a{color:var(--green2);text-decoration:underline}
+    .pdn-consent-error{display:none;margin:8px 0 0;color:#a33b32;font-size:12px}
+    .pdn-consent-error.is-visible{display:block}
+    .cta[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+
 </style>
 </head>
 <body>
@@ -270,10 +279,17 @@
       <p class="price-line">Ценность пакета: <b>46 800 ₽</b> (консультация 25 000 ₽ + бонусы 21 800 ₽)</p>
       <p class="price-line">Или 3 платежа по 3 300 ₽. Цена действует до 25 октября 2026, дальше — 12 900 ₽.</p>
       <p><strong>Гарантия 7 дней.</strong> Если после консультации вы не получили письменный план с точными цифрами, вернём 100% оплаты. Бонусы остаются у вас.</p>
-      <div class="cta-wrap">
-        <a class="cta" href="REPLACE_WITH_PAYMENT_OR_BOOKING_URL">Записаться на консультацию →</a>
+      <div class="pdn-consent" id="pdn-consent-block">
+        <label class="pdn-consent__label" for="pdn-consent">
+          <input type="checkbox" id="pdn-consent" name="pdn_consent" value="yes">
+          <span>Я даю отдельное согласие на обработку моих персональных данных на условиях <a href="/soglasie-pdn/" target="_blank" rel="noopener">Согласия на обработку персональных данных</a>.</span>
+        </label>
+        <p class="pdn-consent-error" id="pdn-consent-error" role="alert">Для перехода к записи необходимо отметить согласие.</p>
       </div>
-      <p class="disclaimer">Нажимая кнопку, вы соглашаетесь с <a href="oferta/">публичной офертой</a> и <a href="soglasie/">условиями обработки персональных данных</a>.</p>
+      <div class="cta-wrap">
+        <a class="cta" id="booking-cta" href="REPLACE_WITH_PAYMENT_OR_BOOKING_URL" aria-disabled="true">Записаться на консультацию →</a>
+      </div>
+      <p class="disclaimer">Публичная оферта: <a href="/oferta/">ознакомиться с условиями</a>. Согласие на обработку персональных данных оформляется отдельно.</p>
     </section>
 
     <section class="short" aria-labelledby="faq-title">
@@ -297,11 +313,34 @@
       <div>
         <a href="oferta/">Публичная оферта</a><br>
         <a href="privacy-policy.html">Политика обработки персональных данных</a><br>
-        <a href="privacy-policy.html">Согласие на обработку персональных данных</a><br>
+        <a href="/soglasie-pdn/">Согласие на обработку персональных данных</a><br>
         © <span id="year">2026</span>
       </div>
     </div>
   </footer>
+
+
+<script>
+(function(){
+  const checkbox=document.getElementById('pdn-consent');
+  const link=document.getElementById('booking-cta');
+  const error=document.getElementById('pdn-consent-error');
+  if(!checkbox||!link)return;
+  function update(){
+    link.setAttribute('aria-disabled',checkbox.checked?'false':'true');
+    if(error)error.classList.remove('is-visible');
+  }
+  checkbox.addEventListener('change',update);
+  link.addEventListener('click',function(event){
+    if(!checkbox.checked){
+      event.preventDefault();
+      if(error)error.classList.add('is-visible');
+      checkbox.focus();
+    }
+  });
+  update();
+})();
+</script>
 
 </body>
 </html>
